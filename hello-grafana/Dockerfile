@@ -1,0 +1,14 @@
+FROM grafana/grafana:5.4.3
+
+USER grafana
+
+ENV GF_AUTH_ANONYMOUS_ENABLED=true
+
+RUN mkdir -p /var/lib/grafana/dashboards
+
+COPY provisioning/datasources.yaml /etc/grafana/provisioning/datasources/datasources.yaml
+COPY provisioning/dashboards.yaml /etc/grafana/provisioning/dashboards/dashboards.yaml
+
+COPY dashboards/*.json /var/lib/grafana/dashboards/
+
+EXPOSE 3000
