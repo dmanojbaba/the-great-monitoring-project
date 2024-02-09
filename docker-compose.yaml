@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  backend:
+    image: hello-backend:latest
+    container_name: "hello_backend"
+    ports:
+      - "9100:8080"
+  frontend:
+    image: hello-frontend:latest
+    container_name: "hello_frontend"
+    ports:
+      - "9000:80"
+    depends_on:
+      - backend
+networks:
+  default:
+    name: hello-network
+    driver: bridge
