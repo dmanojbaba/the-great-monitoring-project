@@ -1,0 +1,11 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    editable: false
+    isDefault: true
+    uid: hello_prometheus
+    url: http://docker.for.mac.localhost:9090
+    version: 1

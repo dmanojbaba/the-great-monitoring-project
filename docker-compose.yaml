@@ -17,6 +17,13 @@ services:
     container_name: "hello_prometheus"
     ports:
       - "9090:9090"
+  grafana:
+    image: hello-grafana:latest
+    container_name: "hello_grafana"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
 networks:
   default:
     name: hello-network
