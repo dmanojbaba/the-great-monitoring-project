@@ -41,6 +41,7 @@ public class GreetingController {
 
 	@GetMapping("/status")
 	public String status() {
-		return new String("OK");
+		return "OK";
 	}
+
 }
