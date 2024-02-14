@@ -1,4 +1,4 @@
-This project was forked from [Spring Boot Building a RESTful Web Service](https://github.com/spring-guides/gs-rest-service).
+This project was forked from [Spring Boot Building a RESTful Web Service with CORS](https://github.com/spring-guides/gs-rest-service-cors).
 
 ## What you’ll build
 You’ll build a service that will accept HTTP GET requests at:
