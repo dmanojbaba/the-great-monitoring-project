@@ -12,6 +12,11 @@ services:
       - "9000:9000"
     depends_on:
       - backend
+  prometheus:
+    image: hello-prometheus:latest
+    container_name: "hello_prometheus"
+    ports:
+      - "9090:9090"
 networks:
   default:
     name: hello-network
