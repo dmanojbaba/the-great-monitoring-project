@@ -7,8 +7,25 @@ COPY . .
 
 RUN mvn -f /usr/src/app/pom.xml clean package
 
+## -- JRE --
+FROM amazoncorretto:21-alpine3.19 as corretto-jdk
+
+RUN apk add --no-cache binutils
+
+RUN jlink \
+         --add-modules ALL-MODULE-PATH \
+         --strip-debug \
+         --no-man-pages \
+         --no-header-files \
+         --compress=2 \
+         --output /jre
+
 # -- RELEASE --
-FROM openjdk:23-jdk
+FROM alpine:3.19
+
+ENV JAVA_HOME=/jre
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+COPY --from=corretto-jdk /jre $JAVA_HOME
 
 WORKDIR /app
 
