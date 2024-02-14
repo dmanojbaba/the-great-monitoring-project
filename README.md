@@ -3,7 +3,7 @@ This project is for monitoring [Spring Boot](http://spring.io) and [ReactJS](htt
 | Application | URL |
 |-------------|------|
 |Frontend (React) | http://localhost:9000 |
-|Backend (Spring Boot) | http://localhost:9100 |
+|Backend (Spring Boot) | http://localhost:9001 |
 
 ## Prerequisites
 * [docker](https://www.docker.com/)

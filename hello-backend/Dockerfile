@@ -12,9 +12,7 @@ FROM openjdk:23-jdk
 
 WORKDIR /app
 
-COPY --from=build /usr/src/app/entrypoint.sh entrypoint.sh
 COPY --from=build /usr/src/app/target/hello-backend-*.jar hello-backend.jar
-
-EXPOSE 9000 9001
+COPY entrypoint.sh entrypoint.sh
 
 ENTRYPOINT [ "./entrypoint.sh", "hello-backend.jar" ]
