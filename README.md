@@ -8,7 +8,7 @@ This project is for monitoring [Spring Boot](http://spring.io) and [ReactJS](htt
 ## Prerequisites
 * [docker](https://www.docker.com/)
 * [npm](https://nodejs.org/)
-* [gradle](https://gradle.org/)
+* [maven](https://maven.apache.org/)
 * [java](https://www.java.com/)
 
 ## Install & Run (Mac)
@@ -19,7 +19,7 @@ $ sudo usermod -aG docker $USER
 
 $ brew install node
 
-$ brew install gradle
+$ brew install maven
 
 $ git clone https://github.com/dmanojbaba/the-great-monitoring-project.git
 $ cd the-great-monitoring-project
