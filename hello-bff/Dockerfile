@@ -7,7 +7,7 @@ COPY . .
 
 RUN mvn -f /usr/src/app/pom.xml clean package
 
-## -- JRE --
+# -- JRE --
 FROM amazoncorretto:21-alpine3.19 as corretto-jdk
 
 RUN apk add --no-cache binutils

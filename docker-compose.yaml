@@ -1,10 +1,17 @@
 version: "3.8"
 services:
+  backend:
+    image: hello-backend:latest
+    container_name: "hello_backend"
+    ports:
+      - "9002:9002"
   bff:
     image: hello-bff:latest
     container_name: "hello_bff"
     ports:
       - "9001:9001"
+    depends_on:
+      - backend
   frontend:
     image: hello-frontend:latest
     container_name: "hello_frontend"
