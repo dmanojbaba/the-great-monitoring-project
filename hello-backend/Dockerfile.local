@@ -1,8 +1,0 @@
-FROM openjdk:23-jdk
-
-WORKDIR /app
-
-COPY target/hello-backend-*.jar hello-backend.jar
-COPY entrypoint.sh entrypoint.sh
-
-ENTRYPOINT [ "./entrypoint.sh", "hello-backend.jar" ]

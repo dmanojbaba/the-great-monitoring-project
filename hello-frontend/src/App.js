@@ -8,20 +8,19 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const backend_server =
-      window._env_.REACT_APP_BACKEND_SERVER ||
-      process.env.REACT_APP_BACKEND_SERVER;
+    const bff_server =
+      window._env_.REACT_APP_BFF_URL || process.env.REACT_APP_BFF_URL;
 
-    var backend_url = backend_server + "/greeting?name=" + textValue;
-    // var backend_url = "https://jsonplaceholder.typicode.com/todos/1";
+    var bff_url = bff_server + "/greeting?name=" + textValue;
+    // var bff_url = "https://jsonplaceholder.typicode.com/todos/1";
 
     try {
-      const responseData = await fetch(backend_url);
+      const responseData = await fetch(bff_url);
       const responseJson = await responseData.json();
       setResponse(responseJson.content);
     } catch (error) {
       console.error("Error sending data:", error);
-      setResponse("*** Backend Error ***");
+      setResponse("*** BFF Error ***");
     }
   };
 

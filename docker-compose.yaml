@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  backend:
-    image: hello-backend:latest
-    container_name: "hello_backend"
+  bff:
+    image: hello-bff:latest
+    container_name: "hello_bff"
     ports:
       - "9001:9001"
   frontend:
@@ -11,7 +11,7 @@ services:
     ports:
       - "9000:9000"
     depends_on:
-      - backend
+      - bff
   prometheus:
     image: hello-prometheus:latest
     container_name: "hello_prometheus"

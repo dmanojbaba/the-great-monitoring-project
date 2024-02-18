@@ -1,0 +1,8 @@
+FROM openjdk:23-jdk
+
+WORKDIR /app
+
+COPY target/hello-bff-*.jar hello-bff.jar
+COPY entrypoint.sh entrypoint.sh
+
+ENTRYPOINT [ "./entrypoint.sh", "hello-bff.jar" ]

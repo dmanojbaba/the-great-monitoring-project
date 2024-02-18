@@ -20,7 +20,7 @@ scrape_configs:
     metrics_path: "/prometheus"
     static_configs:
       - targets: ["docker.for.mac.localhost:9000"]
-  - job_name: "hello-backend"
+  - job_name: "hello-bff"
     scrape_interval: 30s
     metrics_path: "/prometheus"
     static_configs:

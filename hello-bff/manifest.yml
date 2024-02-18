@@ -1,0 +1,8 @@
+---
+applications:
+- name: hello-bff
+  memory: 256M
+  instances: 1
+  host: hello-bff
+  domain: guides.spring.io
+  path: build/libs/hello-bff-0.1.0.jar

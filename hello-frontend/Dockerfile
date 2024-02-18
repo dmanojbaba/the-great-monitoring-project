@@ -17,9 +17,6 @@ RUN apk add --no-cache nginx-mod-http-lua
 RUN apk add --no-cache bash
 RUN apk upgrade
 
-RUN touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid
-
 RUN mkdir -p /var/run/nginx && \
     chown -R nginx:nginx /var/run/nginx && \
     chmod g+s /var/run/nginx
@@ -28,7 +25,8 @@ RUN mkdir -p /var/cache/nginx && \
     chown -R nginx:nginx /var/cache/nginx && \
     chmod g+s /var/cache/nginx
 
-RUN mkdir /usr/local/lua && chown nginx /usr/local/lua
+RUN mkdir /usr/local/lua && \
+    chown nginx:nginx /usr/local/lua
 
 COPY --from=build /usr/src/app/build/ /usr/share/nginx/html/
 COPY .env /usr/share/nginx/html/.env

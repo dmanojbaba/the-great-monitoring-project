@@ -1,17 +1,19 @@
 This project is for monitoring [Spring Boot](http://spring.io) and [ReactJS](https://reactjs.org/) applications.
 
-| Application | URL |
-|-------------|------|
-|Frontend (React) | http://localhost:9000 |
-|Backend (Spring Boot) | http://localhost:9001 |
+| Application                        | URL                   |
+| ---------------------------------- | --------------------- |
+| Frontend (React)                   | http://localhost:9000 |
+| Backend for Frontend (Spring Boot) | http://localhost:9001 |
 
 ## Prerequisites
-* [docker](https://www.docker.com/)
-* [npm](https://nodejs.org/)
-* [maven](https://maven.apache.org/)
-* [java](https://www.java.com/)
+
+- [docker](https://www.docker.com/)
+- [npm](https://nodejs.org/)
+- [maven](https://maven.apache.org/)
+- [java](https://www.java.com/)
 
 ## Install & Run (Mac)
+
 ```bash
 $ curl -fsSL get.docker.com -o get-docker.sh
 $ sudo sh get-docker.sh
@@ -28,11 +30,15 @@ $ ./install.sh
 
 $ ./build.sh
 ```
+
 ### Startup (docker-compose up -d)
+
 ```
 $ ./start.sh
 ```
+
 ### Shutdown (docker-compose down)
+
 ```
 $ ./stop.sh
 ```

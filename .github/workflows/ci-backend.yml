@@ -1,14 +1,14 @@
-name: ci-backend
+name: ci-bff
 
 on:
   push:
     branches:
       - "main"
     paths:
-      - "hello-backend/**"
+      - "hello-bff/**"
 
 env:
-  IMAGE_NAME: "hello-backend"
+  IMAGE_NAME: "hello-bff"
 
 jobs:
   docker:

@@ -18,5 +18,5 @@ $ ./gradlew build
 ```
 ### Run
 ```bash
-$ java -jar build/libs/hello-backend-0.1.0.jar
+$ java -jar build/libs/hello-bff-0.1.0.jar
 ```

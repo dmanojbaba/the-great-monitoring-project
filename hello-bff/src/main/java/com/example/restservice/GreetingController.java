@@ -24,7 +24,7 @@ public class GreetingController {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello Backend";
+		return "Hello BFF";
 	}
 
 	@GetMapping("/greeting")

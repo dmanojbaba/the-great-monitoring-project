@@ -29,7 +29,7 @@ COPY --from=corretto-jdk /jre $JAVA_HOME
 
 WORKDIR /app
 
-COPY --from=build /usr/src/app/target/hello-backend-*.jar hello-backend.jar
+COPY --from=build /usr/src/app/target/hello-bff-*.jar hello-bff.jar
 COPY entrypoint.sh entrypoint.sh
 
-ENTRYPOINT [ "./entrypoint.sh", "hello-backend.jar" ]
+ENTRYPOINT [ "./entrypoint.sh", "hello-bff.jar" ]
