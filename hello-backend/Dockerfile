@@ -3,7 +3,7 @@ FROM golang:1.21.7-alpine3.19 AS build
 
 WORKDIR /usr/src/app
 
-COPY go.* ./
+COPY go.* go.* ./
 
 RUN go mod download
 
@@ -14,8 +14,8 @@ RUN go build -o ./hello-backend
 # -- RELEASE --
 FROM alpine:3.19
 
-WORKDIR /
+WORKDIR /app
 
-COPY --from=build /usr/src/app/hello-backend /hello-backend
+COPY --from=build /usr/src/app/hello-backend hello-backend
 
-ENTRYPOINT ["/hello-backend"]
+ENTRYPOINT ["/app/hello-backend"]
