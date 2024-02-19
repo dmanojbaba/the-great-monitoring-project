@@ -10,23 +10,23 @@ scrape_configs:
     metrics_path: "/metrics"
     static_configs:
       - targets: ["localhost:9090"]
-  - job_name: "hello-grafana"
+  - job_name: "grafana"
     scrape_interval: 1m
     metrics_path: "/metrics"
     static_configs:
       - targets: ["docker.for.mac.localhost:3000"]
   - job_name: "hello-frontend"
     scrape_interval: 30s
-    metrics_path: "/prometheus"
+    metrics_path: "/metrics"
     static_configs:
       - targets: ["docker.for.mac.localhost:9000"]
   - job_name: "hello-bff"
     scrape_interval: 30s
-    metrics_path: "/prometheus"
+    metrics_path: "/metrics"
     static_configs:
       - targets: ["docker.for.mac.localhost:9001"]
   - job_name: "hello-backend"
     scrape_interval: 30s
-    metrics_path: "/prometheus"
+    metrics_path: "/metrics"
     static_configs:
       - targets: ["docker.for.mac.localhost:9002"]

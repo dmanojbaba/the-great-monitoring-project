@@ -35,7 +35,7 @@ func main() {
 		fmt.Fprintf(w, "Hello Backend")
 	})
 
-	http.Handle("/prometheus", promhttp.Handler())
+	http.Handle("/metrics", promhttp.Handler())
 
 	http.HandleFunc("/hello", hello)
 
