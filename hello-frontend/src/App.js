@@ -11,7 +11,7 @@ function App() {
     const bff_server =
       window._env_.REACT_APP_BFF_URL || process.env.REACT_APP_BFF_URL;
 
-    var bff_url = bff_server + "/greeting?name=" + textValue;
+    var bff_url = bff_server + "/hello?name=" + textValue;
     // var bff_url = "https://jsonplaceholder.typicode.com/todos/1";
 
     try {
