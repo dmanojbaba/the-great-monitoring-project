@@ -4,12 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello Backend")
 	})
+
+	http.Handle("/prometheus", promhttp.Handler())
 
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		name := r.URL.Query().Get("name")
