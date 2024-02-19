@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 
 import org.springframework.web.client.RestTemplate;
@@ -35,16 +36,14 @@ public class GreetingController {
 	}
 
 	@GetMapping("/greeting")
-	@Timed(value = "greeting.time", description = "Time taken to return greeting", percentiles = { 0.5, 0.90 })
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		registry.counter("greetings.counter").increment();
 		return new Greeting(counter.incrementAndGet(), System.currentTimeMillis(), String.format(template, name));
 	}
 
 	@GetMapping("/hello")
-	@Timed(value = "hello.time", description = "Time taken to return hello", percentiles = { 0.5, 0.90 })
+	@Timed(value = "hello_bff_time", description = "Time taken to return hello", percentiles = { 0.5, 0.90 })
 	public Greeting hello(@RequestParam(value = "name", defaultValue = "") String name) {
-		registry.counter("hello.counter").increment();
+		registry.counter("hello_bff_counter").increment();
 
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(backend_url + "/hello?name=" + name, String.class);
