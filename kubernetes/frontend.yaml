@@ -19,7 +19,7 @@ spec:
           image: dmanojbaba/hello-frontend:latest
           env:
             - name: REACT_APP_BFF_URL
-              value: http://bff.127.0.0.1.nip.io
+              value: http://bff.k8s.io
           ports:
             - containerPort: 9000
 ---
