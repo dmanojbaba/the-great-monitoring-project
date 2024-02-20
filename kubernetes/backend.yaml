@@ -5,10 +5,10 @@ metadata:
   name: backend-deployment
   namespace: hello
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: hello_backend
-  replicas: 1
   template:
     metadata:
       labels:
@@ -30,6 +30,7 @@ spec:
   selector:
     app: hello_backend
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 9002
+      protocol: TCP
+      name: http

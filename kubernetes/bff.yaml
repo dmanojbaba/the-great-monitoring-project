@@ -5,10 +5,10 @@ metadata:
   name: bff-deployment
   namespace: hello
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: hello_bff
-  replicas: 2
   template:
     metadata:
       labels:
@@ -33,6 +33,7 @@ spec:
   selector:
     app: hello_bff
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 9001
+      protocol: TCP
+      name: http

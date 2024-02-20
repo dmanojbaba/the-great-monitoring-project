@@ -61,6 +61,7 @@ spec:
   selector:
     app: hello_grafana
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 3000
+      protocol: TCP
+      name: http
