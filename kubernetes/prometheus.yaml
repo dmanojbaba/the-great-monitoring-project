@@ -11,30 +11,23 @@ data:
       scrape_timeout: 10s
       evaluation_interval: 1m
     scrape_configs:
-      - job_name: "prometheus"
-        scrape_interval: 1m
-        scrape_timeout: 10s
-        scheme: http
-        metrics_path: "/metrics"
-        static_configs:
-          - targets: ["localhost:9090"]
       - job_name: "hello-services"
         scrape_interval: 30s
         metrics_path: "/metrics"
         kubernetes_sd_configs:
         - role: endpoints
+          namespaces:
+            names:
+            - hello
         relabel_configs:
         - action: labelmap
           regex: __meta_kubernetes_service_label_(.+)
         - source_labels: [__meta_kubernetes_namespace]
           action: replace
           target_label: kubernetes_namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          action: replace
-          target_label: kubernetes_pod_name
         - source_labels: [__meta_kubernetes_service_name]
-          action: keep
-          regex: ^(frontend|bff|backend|prometheus|grafana)-service$
+          action: replace
+          target_label: kubernetes_name
 ---
 apiVersion: apps/v1
 kind: Deployment
